@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MARG. Photo Booth Studio — Wedding Package</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1a2744;
+      --navy-light: #243460;
+      --gold: #c9a96e;
+      --gold-light: #e8d5a3;
+      --cream: #f7f2ea;
+      --cream-dark: #ede5d4;
+      --white: #ffffff;
+      --text-dark: #1a2744;
+      --text-gray: #666;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 60%, #2e4070 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 20px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a96e' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 30px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 8vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-script {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(22px, 4vw, 36px);
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--gold);
+      margin: 0 auto 40px;
+    }
+    .hero-divider::before, .hero-divider::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 44px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(201,169,110,0.4);
+    }
+    .hero-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201,169,110,0.5);
+    }
+    .hero-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section { padding: 72px 20px; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .section-desc {
+      color: var(--text-gray);
+      font-size: 16px;
+      max-width: 560px;
+    }
+
+    /* ─── PAIN POINTS ─── */
+    .pain { background: var(--cream-dark); }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .pain-card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      border-left: 4px solid var(--gold);
+    }
+    .pain-card .emoji { font-size: 28px; margin-bottom: 12px; }
+    .pain-card h3 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .pain-card p { font-size: 14px; color: var(--text-gray); }
+
+    /* ─── PACKAGE CARDS ─── */
+    .packages { background: var(--cream); }
+    .package-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .pkg-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(26,39,68,0.10);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pkg-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 60px rgba(26,39,68,0.16);
+    }
+    .pkg-card.featured { border: 2px solid var(--gold); }
+    .pkg-header {
+      background: var(--navy);
+      color: white;
+      padding: 32px 28px 28px;
+      position: relative;
+    }
+    .pkg-header.gold-bg { background: linear-gradient(135deg, #1a2744 0%, #2e4070 100%); }
+    .pkg-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+    .pkg-icon { font-size: 32px; margin-bottom: 12px; }
+    .pkg-name { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .pkg-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .pkg-body { padding: 28px; }
+    .price-block { margin-bottom: 24px; }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--cream-dark);
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-label { font-size: 15px; color: var(--text-gray); }
+    .price-label strong { color: var(--navy); font-weight: 600; }
+    .price-amount {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .price-amount span { font-size: 14px; font-weight: 400; color: var(--text-gray); }
+    .features-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .feature-list { list-style: none; display: grid; gap: 10px; margin-bottom: 28px; }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #444;
+    }
+    .feature-list li .check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .feature-category {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin: 16px 0 8px;
+      padding-left: 4px;
+      border-left: 3px solid var(--gold);
+    }
+    .pkg-cta {
+      display: block;
+      text-align: center;
+      background: var(--navy);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .pkg-cta:hover { background: var(--navy-light); }
+    .pkg-cta.gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .pkg-cta.gold:hover { background: #b8935a; }
+
+    /* ─── WHAT YOU GET ─── */
+    .features-section { background: var(--navy); }
+    .features-section .section-title { color: white; }
+    .features-section .section-desc { color: rgba(255,255,255,0.6); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .feat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .feat-card:hover { background: rgba(255,255,255,0.1); }
+    .feat-card .feat-icon { font-size: 36px; margin-bottom: 12px; }
+    .feat-card h3 { font-size: 15px; font-weight: 700; color: white; margin-bottom: 6px; }
+    .feat-card p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+    /* ─── TRUST ─── */
+    .trust { background: var(--cream-dark); }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .trust-item { text-align: center; padding: 24px 16px; }
+    .trust-item .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .trust-item p { font-size: 14px; color: var(--text-gray); margin-top: 6px; }
+
+    /* ─── FAQ ─── */
+    .faq { background: white; }
+    .faq-list { margin-top: 40px; display: grid; gap: 12px; }
+    .faq-item {
+      border: 1px solid var(--cream-dark);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      font-family: 'Sarabun', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-q .arrow { font-size: 18px; transition: transform 0.3s; }
+    .faq-item.open .arrow { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 48px);
+      color: white;
+      margin-bottom: 12px;
+    }
+    .cta-section h2 em { color: var(--gold); font-style: normal; }
+    .cta-section p { color: rgba(255,255,255,0.65); font-size: 16px; margin-bottom: 36px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #06C755;
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-line:hover { background: #05a847; transform: translateY(-2px); }
+    .btn-line svg { width: 22px; height: 22px; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: white;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0f1a30;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
+    }
+    footer strong { color: var(--gold); }
+
+    /* ─── STICKY LINE BUTTON ─── */
+    .sticky-line {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 999;
+    }
+    .sticky-line a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #06C755;
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(6,199,85,0.45);
+      transition: all 0.3s;
+    }
+    .sticky-line a:hover { background: #05a847; transform: scale(1.04); }
+    .sticky-line svg { width: 20px; height: 20px; }
+
+    @media (max-width: 600px) {
+      .package-wrapper { grid-template-columns: 1fr; }
+      .hero { padding: 60px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-badge">✦ photo booth studio ✦</div>
+  <p class="hero-script">Wedding</p>
+  <h1>MARG.<br><span>Photo Booth</span></h1>
+  <p class="hero-sub">Mark the moments, keep memories</p>
+  <div class="hero-divider">♥</div>
+  <a href="https://line.me/R/ti/p/@366bqtud" class="hero-cta">📸 จองวันพิเศษของคุณ</a>
+  <p class="hero-note">ทักทีมงานผ่าน LINE เพื่อตรวจสอบวันว่าง</p>
+</section>
+
+<!-- ─── PAIN POINTS ─── -->
+<section class="section pain">
+  <div class="section-inner">
+    <div class="section-label">💭 รู้จักความรู้สึกนี้ไหม?</div>
+    <h2 class="section-title">งานแต่งผ่านไป…<br>แต่ความทรงจำหายไปไหน?</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="emoji">📷</div>
+        <h3>ภาพจากแขกไม่ชัด</h3>
+        <p>เซลฟี่มือถือในงานมืด ได้ภาพเบลอ สีไม่สวย ไม่อยากเอามาดูเลย</p>
+      </div>
+      <div class="pain-card">
+        <div class="emoji">🎥</div>
+        <h3>ไม่มี VDO อวยพรถาวร</h3>
+        <p>คำอวยพรจากคนรักหายไปหลังงาน ไม่มีบันทึก ไม่มีความทรงจำ</p>
+      </div>
+      <div class="pain-card">
+        <div class="emoji">😅</div>
+        <h3>แขกไม่มีอะไรทำในงาน</h3>
+        <p>บรรยากาศเงียบ แขกนั่งรอ ไม่มีกิจกรรมสร้างรอยยิ้ม</p>
+      </div>
+      <div class="pain-card">
+        <div class="emoji">🖼️</div>
+        <h3>ไม่มีของที่ระลึกติดมือ</h3>
+        <p>งานจบ แขกกลับบ้านมือเปล่า ไม่มีภาพสวยๆ ให้นึกถึงวันนั้น</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PACKAGES ─── -->
+<section class="section packages">
+  <div class="section-inner">
+    <div class="section-label">🎁 แพ็กเกจของเรา</div>
+    <h2 class="section-title">เลือกแพ็กเกจที่ใช่<br>สำหรับวันพิเศษของคุณ</h2>
+    <p class="section-desc">ทุกแพ็กเกจรวมทุกอย่างครบ ไม่มีค่าใช้จ่ายซ่อนเร้น</p>
+
+    <div class="package-wrapper">
+
+      <!-- PHOTO BOOTH ONLY -->
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div class="pkg-icon">📸</div>
+          <div class="pkg-name">Package 1</div>
+          <div class="pkg-title">Wedding<br>Photo Booth</div>
+        </div>
+        <div class="pkg-body">
+          <div class="price-block">
+            <div class="price-row">
+              <div class="price-label">⏱ <strong>2 ชั่วโมง</strong></div>
+              <div class="price-amount">6,900 <span>บาท</span></div>
+            </div>
+            <div class="price-row">
+              <div class="price-label">⏱ <strong>3 ชั่วโมง</strong></div>
+              <div class="price-amount">7,900 <span>บาท</span></div>
+            </div>
+            <div class="price-row">
+              <div class="price-label">⏱ <strong>4 ชั่วโมง</strong></div>
+              <div class="price-amount">8,900 <span>บาท</span></div>
+            </div>
+          </div>
+
+          <div class="features-title">✦ ฟรี! ครบทุกอย่าง ไม่มีบวกเพิ่ม</div>
+          <ul class="feature-list">
+            <li><span class="check">✓</span>ถ่ายภาพไม่อั้น ขนาด 2×6 นิ้ว • 3 Actions • สีสด คมชัด • กระดาษกันน้ำ</li>
+            <li><span class="check">✓</span>กล้อง Mirrorless + ไฟ Softbox ระดับสตูดิโอ ภาพสวยทุกช็อต</li>
+            <li><span class="check">✓</span>ฟรี! GIF / Boomerang น่ารัก พร้อมลง IG Story ได้เลย</li>
+            <li><span class="check">✓</span>รับไฟล์ทันทีหน้างาน ผ่าน QR Code หรือ Airdrop</li>
+            <li><span class="check">✓</span>ออกแบบ Template กรอบรูปให้เข้ากับธีมงาน แก้ไขได้ตามใจ</li>
+            <li><span class="check">✓</span>Props จัดเต็ม! แว่นแฟชั่น ที่คาดผม ป้ายคำพูดน่ารักๆ</li>
+            <li><span class="check">✓</span>ฟรี! อัลบั้มเก็บภาพ + ตั้งโชว์ภาพถ่ายภายในงาน</li>
+            <li><span class="check">✓</span>ทีมงานดูแลตลอดงาน จัดคิว บริการครบ</li>
+            <li><span class="check">✓</span>ส่งไฟล์ High-Resolution ทุกภาพหลังจบงาน</li>
+          </ul>
+          <a href="https://line.me/R/ti/p/@366bqtud" class="pkg-cta">ทัก LINE จองแพ็กเกจนี้</a>
+        </div>
+      </div>
+
+      <!-- MEMORY PACKAGE -->
+      <div class="pkg-card featured">
+        <div class="pkg-header gold-bg">
+          <div class="pkg-badge">⭐ แนะนำ</div>
+          <div class="pkg-icon">🎬</div>
+          <div class="pkg-name">Package 2 · Premium</div>
+          <div class="pkg-title">Wedding Memory<br>Package</div>
+        </div>
+        <div class="pkg-body">
+          <p style="font-size:13px;color:var(--gold);font-weight:700;margin-bottom:8px;">📸 Photo Booth + 🎥 Video Guest Book</p>
+          <div class="price-block">
+            <div class="price-row">
+              <div class="price-label">⏱ <strong>Essential</strong> · 2 ชั่วโมง</div>
+              <div class="price-amount">9,900 <span>บาท</span></div>
+            </div>
+            <div class="price-row">
+              <div class="price-label">⏱ <strong>Signature</strong> · 3 ชั่วโมง</div>
+              <div class="price-amount">10,900 <span>บาท</span></div>
+            </div>
+            <div class="price-row">
+              <div class="price-label">⏱ <strong>Premium</strong> · 4 ชั่วโมง</div>
+              <div class="price-amount">12,900 <span>บาท</span></div>
+            </div>
+          </div>
+
+          <div class="features-title">✦ ครบทุกอย่างของ Photo Booth บวก...</div>
+          <div class="feature-category">📸 Photo Booth</div>
+          <ul class="feature-list">
+            <li><span class="check">✓</span>ถ่ายและ Print ไม่อั้น ขนาด 2×6 นิ้ว กระดาษกันน้ำของขวัญ</li>
+            <li><span class="check">✓</span>ฟรี! GIF Boomerang น่ารัก พร้อมลง IG Story</li>
+            <li><span class="check">✓</span>รับไฟล์ทันที QR Code / Airdrop หน้างาน</li>
+            <li><span class="check">✓</span>ออกแบบกรอบรูปให้เข้ากับธีมงาน แก้ไขได้</li>
+            <li><span class="check">✓</span>Props จัดเต็ม! แว่นแฟชั่น ที่คาดตม ป้ายน่ารักๆ</li>
+          </ul>
+          <div class="feature-category">🎥 Video Guest Book</div>
+          <ul class="feature-list">
+            <li><span class="check">✓</span>บูธอัด VDO สวยงาม จัดตกแต่งตามธีมงาน</li>
+            <li><span class="check">✓</span>กล้อง & ไมค์คุณภาพสูง ภาพชัด เสียงใส</li>
+            <li><span class="check">✓</span>เก็บทุกคำอวยพรจากคนที่คุณรัก ดูได้ตลอดไป</li>
+            <li><span class="check">✓</span>ส่งวิดีโอทั้งหมดหลังงาน ไฟล์เต็มคุณภาพสูงผ่าน Drive</li>
+            <li><span class="check">✓</span>บริการตัดต่อคลิป รวมคำอวยพรเป็นวิดีโอสั้น พร้อมเพลงประกอบ</li>
+          </ul>
+          <a href="https://line.me/R/ti/p/@366bqtud" class="pkg-cta gold">✨ ทัก LINE จองแพ็กเกจนี้</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ─── -->
+<section class="section features-section">
+  <div class="section-inner">
+    <div class="section-label" style="background:rgba(255,255,255,0.1);color:var(--gold);">✨ ทำไมต้อง MARG.</div>
+    <h2 class="section-title">ทุกช่วงเวลาสำคัญ<br>ให้ความทรงจำยังคงอยู่ตลอดไป</h2>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">🎨</div>
+        <h3>ออกแบบตามธีมงาน</h3>
+        <p>กรอบรูปและการตกแต่งบูธให้เข้ากับสไตล์งานของคุณ</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⚡</div>
+        <h3>รับภาพทันที</h3>
+        <p>ไม่ต้องรอ! รับไฟล์หน้างานผ่าน QR Code หรือ Airdrop</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🖨️</div>
+        <h3>Print คุณภาพสูง</h3>
+        <p>กระดาษกันน้ำ สีสด คมชัด เก็บได้นานหลายสิบปี</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🎬</div>
+        <h3>GIF & Boomerang</h3>
+        <p>ความสนุกในรูปแบบ GIF น่ารัก พร้อมแชร์ IG Story ได้เลย</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">👥</div>
+        <h3>ทีมงานมืออาชีพ</h3>
+        <p>ดูแลตลอดงาน จัดคิว บริการครบ ให้คุณสบายใจทุกนาที</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📦</div>
+        <h3>ไฟล์ครบหลังงาน</h3>
+        <p>รับลิงก์ดาวน์โหลด High-Res ทุกภาพหลังจบงาน</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST ─── -->
+<section class="section trust">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label" style="margin:0 auto 16px;">💛 ความไว้วางใจ</div>
+    <h2 class="section-title" style="text-align:center;">ลูกค้าไว้วางใจ MARG.</h2>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="num">100+</div>
+        <p>งานที่ผ่านมา</p>
+      </div>
+      <div class="trust-item">
+        <div class="num">∞</div>
+        <p>ถ่ายภาพไม่อั้น</p>
+      </div>
+      <div class="trust-item">
+        <div class="num">4K</div>
+        <p>คุณภาพภาพสูงสุด</p>
+      </div>
+      <div class="trust-item">
+        <div class="num">100%</div>
+        <p>ลูกค้าประทับใจ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="section faq">
+  <div class="section-inner">
+    <div class="section-label">❓ คำถามที่พบบ่อย</div>
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          จองล่วงหน้านานแค่ไหน? <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">แนะนำให้จองล่วงหน้าอย่างน้อย 1–3 เดือน โดยเฉพาะช่วง High Season ทักทีมงานผ่าน LINE เพื่อตรวจสอบวันว่างได้เลยค่ะ</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ออกแบบกรอบรูปให้ตรงธีมงานได้จริงไหม? <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">ได้เลยค่ะ! ทีมงานออกแบบกรอบรูปให้เข้ากับธีมงาน สี โลโก้ หรือสไตล์ที่ต้องการ และสามารถแก้ไขได้ก่อนวันจริง</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ต้องเตรียมพื้นที่ขนาดไหน? <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">ต้องการพื้นที่ประมาณ 3×3 เมตรขึ้นไป ทีมงานสามารถปรับการจัดวางตามพื้นที่งานของคุณได้ค่ะ</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ส่งไฟล์ทั้งหมดให้เมื่อไหร่? <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">ส่งไฟล์ High-Resolution ทุกภาพภายใน 3–5 วันทำการหลังจบงานค่ะ ผ่านลิงก์ดาวน์โหลดที่ส่งให้ทาง LINE</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Video Guest Book คืออะไร? <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">Video Guest Book คือบูธอัดวิดีโอที่ให้แขกในงานฝากคำอวยพรเป็นคลิปสั้นๆ หลังงานทีมงานจะตัดต่อรวมทุกคลิปพร้อมเพลงประกอบ กลายเป็นวิดีโอที่ระลึกที่มีคุณค่าสูงมากค่ะ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section">
+  <h2>พร้อมสร้างความทรงจำ<br><em>ที่ดีที่สุดในชีวิต?</em></h2>
+  <p>ทักทีมงาน MARG. วันนี้ เพื่อตรวจสอบวันว่างและรับข้อมูลเพิ่มเติม</p>
+  <div class="cta-buttons">
+    <a href="https://line.me/R/ti/p/@366bqtud" class="btn-line">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      ทัก LINE: @366bqtud
+    </a>
+    <a href="tel:+66" class="btn-secondary">📞 โทรสอบถาม</a>
+  </div>
+  <p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,0.4);">แจ้งวัน เวลา สถานที่ และจำนวนชั่วโมง เพื่อกำหนดนัดหมายล่วงหน้า</p>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p><strong>MARG. Photo Booth Studio</strong> · Mark the moments, keep memories</p>
+  <p style="margin-top:6px;">LINE: @366bqtud</p>
+</footer>
+
+<!-- ─── STICKY LINE ─── -->
+<div class="sticky-line">
+  <a href="https://line.me/R/ti/p/@366bqtud">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.630 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.630 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    ทัก LINE
+  </a>
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
